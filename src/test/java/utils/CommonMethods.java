@@ -33,7 +33,7 @@ public class CommonMethods extends PageInitializer {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             driver.manage().window().maximize();
             driver.get(ConfigReader.read("url"));
-            initializePageObjects();
+            initializePageObjects();  // Initialize page objects here
         }
     }
 
@@ -52,8 +52,8 @@ public class CommonMethods extends PageInitializer {
         waitForElementToBeClickable(element);
         element.click();
     }
-    public static WebDriverWait getWait(){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(Constants.IMPLICIT_WAIT));
-        return wait;
+
+    public static WebDriverWait getWait() {
+        return new WebDriverWait(driver, Duration.ofSeconds(Constants.IMPLICIT_WAIT));
     }
 }

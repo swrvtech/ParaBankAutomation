@@ -5,12 +5,12 @@ Feature: Account Overview
   Background:
     Given I am logged into my account
 
-  @viewAccountOverview
+  @viewAccountOverview @AOP
   Scenario: Viewing account overview
     When I navigate to the Account Overview page
     Then I should see all my account details
 
-  @verifyAccountInfo
+  @verifyAccountInfo @AOP
   Scenario: Verifying the accuracy of displayed account information
     When I navigate to the Account Overview page
     Then I should see accurate account information
