@@ -9,9 +9,8 @@ public class PageInitializer {
     public static AccountCreationPage accountCreationPage;
     public static AccountOverviewPage accountOverviewPage;
     public static LoginPage loginPage;
-    public static WebDriver driver;
 
-    public static void initializePageObjects() {
+    public static void initializePageObjects(WebDriver driver) {
         accountCreationPage = new AccountCreationPage(driver);
         accountOverviewPage = new AccountOverviewPage(driver);
         loginPage = new LoginPage(driver);

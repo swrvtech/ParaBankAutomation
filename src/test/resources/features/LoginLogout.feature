@@ -1,24 +1,33 @@
 @login
-Feature: Login and Logout
-  As a registered user, I want to log in and log out of my account so that I can secure my banking information.
-
-  Background:
-    Given I am on the Login page
+Feature: Login and Logout for Parabank
 
   @validLogin
-  Scenario: Logging in with valid credentials
-    When I enter valid credentials
-    And I click the login button
-    Then I should be redirected to the Accounts Overview page
+  Scenario Outline: Valid login
+    Given I am on the Login page
+    When user enters "<Username>" and "<Password>"
+    And user clicks on login button
+    Then user is successfully logged in
+
+    Examples:
+      | Username | Password |
+      | john     | demo     |
 
   @invalidLogin
-  Scenario: Handling invalid login attempts
-    When I enter invalid credentials
-    And I click the login button
-    Then I should see an error message
+  Scenario Outline: Error message validation during invalid login
+    Given I am on the Login page
+    When user enters "<Username>" and "<Password>"
+    And user clicks on login button
+    Then user sees "<ErrorMessage>"
 
-  @logout
-  Scenario: Logging out and verifying the logout success
+    Examples:
+      | Username        | Password        | ErrorMessage                                    |
+      | invalidUsername | invalidPassword | The username and password could not be verified.|
+      | invalidUsername |                 | The username and password could not be verified.|
+      |                 | invalidPassword | The username and password could not be verified.|
+      |                 |                 | Please enter a username and password.           |
+
+  @logOut
+  Scenario: Logout
     Given I am logged into my account
     When I click the logout button
     Then I should be redirected to the Login page

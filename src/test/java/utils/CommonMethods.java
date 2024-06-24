@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.time.Duration;
 
-public class CommonMethods extends PageInitializer {
+public class CommonMethods {
     public static WebDriver driver;
 
     public static void setUp() throws IOException {
@@ -33,7 +33,7 @@ public class CommonMethods extends PageInitializer {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             driver.manage().window().maximize();
             driver.get(ConfigReader.read("url"));
-            initializePageObjects();  // Initialize page objects here
+            PageInitializer.initializePageObjects(driver);  // Initialize page objects here
         }
     }
 
@@ -54,6 +54,6 @@ public class CommonMethods extends PageInitializer {
     }
 
     public static WebDriverWait getWait() {
-        return new WebDriverWait(driver, Duration.ofSeconds(Constants.IMPLICIT_WAIT));
+        return new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 }
