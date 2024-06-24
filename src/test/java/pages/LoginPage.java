@@ -11,11 +11,7 @@ public class LoginPage extends CommonMethods {
     By passwordField = By.name("password");
     By loginButton = By.xpath("//input[@value='Log In']");
     By errorMessage = By.xpath("//p[@class='error']");
-
-    // Constructor
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+    
 
     // Methods to interact with the login page
     public void enterUsername(String username) {

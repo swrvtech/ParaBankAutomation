@@ -12,24 +12,24 @@ public class LoginSteps extends CommonMethods {
     @Given("I am on the Login page")
     public void i_am_on_the_login_page() {
         driver.get("http://parabank.parasoft.com/parabank/index.htm"); // URL of the login page
-        PageInitializer.initializePageObjects(); // Ensure page objects are initialized
+
     }
 
     @When("I enter valid credentials")
     public void i_enter_valid_credentials() {
-        PageInitializer.loginPage.enterUsername("validUsername");
-        PageInitializer.loginPage.enterPassword("validPassword");
+        loginPage.enterUsername("validUsername");
+        loginPage.enterPassword("validPassword");
     }
 
     @When("I enter invalid credentials")
     public void i_enter_invalid_credentials() {
-        PageInitializer.loginPage.enterUsername("invalidUsername");
-        PageInitializer.loginPage.enterPassword("invalidPassword");
+        loginPage.enterUsername("invalidUsername");
+        loginPage.enterPassword("invalidPassword");
     }
 
     @When("I click the login button")
     public void i_click_the_login_button() {
-        PageInitializer.loginPage.clickLoginButton();
+        loginPage.clickLoginButton();
     }
 
     @Then("I should be redirected to the Accounts Overview page")
