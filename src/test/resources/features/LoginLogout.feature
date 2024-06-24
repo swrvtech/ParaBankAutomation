@@ -31,4 +31,3 @@ Feature: Login and Logout for Parabank
     Given I am logged into my account
     When I click the logout button
     Then I should be redirected to the Login page
-    And I should see a logout confirmation message

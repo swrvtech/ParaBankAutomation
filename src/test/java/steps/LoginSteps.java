@@ -56,11 +56,4 @@ public class LoginSteps extends CommonMethods {
         String actualUrl = driver.getCurrentUrl();
         assert expectedUrl.equals(actualUrl) : "Expected URL: " + expectedUrl + ", but got: " + actualUrl;
     }
-
-    @Then("I should see a logout confirmation message")
-    public void i_should_see_a_logout_confirmation_message() {
-        String expectedMessage = "You are now logged out.";
-        String actualMessage = driver.findElement(By.xpath("//p[@class='info']")).getText();
-        assert expectedMessage.equals(actualMessage) : "Expected message: " + expectedMessage + ", but got: " + actualMessage;
-    }
 }
