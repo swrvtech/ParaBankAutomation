@@ -8,7 +8,7 @@ public class LoginPage extends CommonMethods {
 
     // Constructor to initialize WebDriver
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        CommonMethods.driver = driver;
     }
 
     // Locators for login page fields
