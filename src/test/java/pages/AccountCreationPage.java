@@ -2,6 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class AccountCreationPage {
     WebDriver driver;
@@ -22,6 +26,7 @@ public class AccountCreationPage {
     By password = By.id("customer.password");
     By repeatedPassword = By.id("repeatedPassword");
     By registerButton = By.xpath("//input[@value='Register']");
+    By successMessage = By.xpath("//p[text()='Your account was created successfully. You are now logged in.']");
 
     public void enterFirstName(String fname) {
         driver.findElement(firstName).sendKeys(fname);
@@ -69,5 +74,11 @@ public class AccountCreationPage {
 
     public void clickRegisterButton() {
         driver.findElement(registerButton).click();
+    }
+
+    public boolean isAccountCreationSuccessMessageDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
+        return messageElement.isDisplayed();
     }
 }
