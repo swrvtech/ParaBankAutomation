@@ -48,6 +48,6 @@ public class AccountCreationSteps extends CommonMethods {
 
     @Then("I should see an error message")
     public void iShouldSeeAnErrorMessage() {
-        // Implement your error message verification logic here
+        assertTrue(accountCreationPage.isErrorMessageDisplayed());
     }
 }
