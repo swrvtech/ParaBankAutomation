@@ -27,50 +27,54 @@ public class AccountCreationPage {
     By repeatedPassword = By.id("repeatedPassword");
     By registerButton = By.xpath("//input[@value='Register']");
     By successMessage = By.xpath("//p[text()='Your account was created successfully. You are now logged in.']");
+<<<<<<< HEAD
     By errorMessage = By.xpath("//p[contains(text(),'error')]"); // Adjust the locator based on the actual error message element
+=======
+    By errorMessage = By.id("repeatedPassword.errors"); // Updated locator based on the provided HTML snippet
+>>>>>>> 33ce62c (error message displayed)
 
     public void enterFirstName(String fname) {
-        driver.findElement(firstName).sendKeys(fname);
+        if (fname != null) driver.findElement(firstName).sendKeys(fname);
     }
 
     public void enterLastName(String lname) {
-        driver.findElement(lastName).sendKeys(lname);
+        if (lname != null) driver.findElement(lastName).sendKeys(lname);
     }
 
     public void enterAddressStreet(String street) {
-        driver.findElement(addressStreet).sendKeys(street);
+        if (street != null) driver.findElement(addressStreet).sendKeys(street);
     }
 
     public void enterAddressCity(String city) {
-        driver.findElement(addressCity).sendKeys(city);
+        if (city != null) driver.findElement(addressCity).sendKeys(city);
     }
 
     public void enterAddressState(String state) {
-        driver.findElement(addressState).sendKeys(state);
+        if (state != null) driver.findElement(addressState).sendKeys(state);
     }
 
     public void enterAddressZipCode(String zipCode) {
-        driver.findElement(addressZipCode).sendKeys(zipCode);
+        if (zipCode != null) driver.findElement(addressZipCode).sendKeys(zipCode);
     }
 
     public void enterPhoneNumber(String phone) {
-        driver.findElement(phoneNumber).sendKeys(phone);
+        if (phone != null) driver.findElement(phoneNumber).sendKeys(phone);
     }
 
     public void enterSSN(String ssnNumber) {
-        driver.findElement(ssn).sendKeys(ssnNumber);
+        if (ssnNumber != null) driver.findElement(ssn).sendKeys(ssnNumber);
     }
 
     public void enterUsername(String uname) {
-        driver.findElement(username).sendKeys(uname);
+        if (uname != null) driver.findElement(username).sendKeys(uname);
     }
 
     public void enterPassword(String pwd) {
-        driver.findElement(password).sendKeys(pwd);
+        if (pwd != null) driver.findElement(password).sendKeys(pwd);
     }
 
     public void enterRepeatedPassword(String rpwd) {
-        driver.findElement(repeatedPassword).sendKeys(rpwd);
+        if (rpwd != null) driver.findElement(repeatedPassword).sendKeys(rpwd);
     }
 
     public void clickRegisterButton() {

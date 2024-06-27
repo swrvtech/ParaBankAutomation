@@ -4,10 +4,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import utils.CommonMethods;
-import utils.PageInitializer;
-
 import java.util.Map;
-
+import java.util.List;
 import static org.junit.Assert.assertTrue;
 import static utils.PageInitializer.accountCreationPage;
 
@@ -21,19 +19,44 @@ public class AccountCreationSteps extends CommonMethods {
 
     @When("I enter the following account details")
     public void iEnterTheFollowingAccountDetails(DataTable dataTable) {
-        Map<String, String> accountDetails = dataTable.asMap(String.class, String.class);
+        List<Map<String, String>> accountDetailsList = dataTable.asMaps(String.class, String.class);
 
-        accountCreationPage.enterFirstName(accountDetails.get("firstName"));
-        accountCreationPage.enterLastName(accountDetails.get("lastName"));
-        accountCreationPage.enterAddressStreet(accountDetails.get("addressStreet"));
-        accountCreationPage.enterAddressCity(accountDetails.get("addressCity"));
-        accountCreationPage.enterAddressState(accountDetails.get("addressState"));
-        accountCreationPage.enterAddressZipCode(accountDetails.get("addressZipCode"));
-        accountCreationPage.enterPhoneNumber(accountDetails.get("phoneNumber"));
-        accountCreationPage.enterSSN(accountDetails.get("ssn"));
-        accountCreationPage.enterUsername(accountDetails.get("username"));
-        accountCreationPage.enterPassword(accountDetails.get("password"));
-        accountCreationPage.enterRepeatedPassword(accountDetails.get("repeatedPassword"));
+        // Since Scenario Outline provides one row at a time, we get the first (and only) row
+        Map<String, String> accountDetails = accountDetailsList.get(0);
+
+        if (accountDetails.get("firstName") != null) {
+            accountCreationPage.enterFirstName(accountDetails.get("firstName"));
+        }
+        if (accountDetails.get("lastName") != null) {
+            accountCreationPage.enterLastName(accountDetails.get("lastName"));
+        }
+        if (accountDetails.get("addressStreet") != null) {
+            accountCreationPage.enterAddressStreet(accountDetails.get("addressStreet"));
+        }
+        if (accountDetails.get("addressCity") != null) {
+            accountCreationPage.enterAddressCity(accountDetails.get("addressCity"));
+        }
+        if (accountDetails.get("addressState") != null) {
+            accountCreationPage.enterAddressState(accountDetails.get("addressState"));
+        }
+        if (accountDetails.get("addressZipCode") != null) {
+            accountCreationPage.enterAddressZipCode(accountDetails.get("addressZipCode"));
+        }
+        if (accountDetails.get("phoneNumber") != null) {
+            accountCreationPage.enterPhoneNumber(accountDetails.get("phoneNumber"));
+        }
+        if (accountDetails.get("ssn") != null) {
+            accountCreationPage.enterSSN(accountDetails.get("ssn"));
+        }
+        if (accountDetails.get("username") != null) {
+            accountCreationPage.enterUsername(accountDetails.get("username"));
+        }
+        if (accountDetails.get("password") != null) {
+            accountCreationPage.enterPassword(accountDetails.get("password"));
+        }
+        if (accountDetails.get("repeatedPassword") != null) {
+            accountCreationPage.enterRepeatedPassword(accountDetails.get("repeatedPassword"));
+        }
     }
 
     @When("I submit the registration form")
