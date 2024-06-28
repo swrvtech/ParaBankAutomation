@@ -24,39 +24,45 @@ public class AccountCreationSteps extends CommonMethods {
         // Since Scenario Outline provides one row at a time, we get the first (and only) row
         Map<String, String> accountDetails = accountDetailsList.get(0);
 
-        if (accountDetails.get("firstName") != null) {
-            accountCreationPage.enterFirstName(accountDetails.get("firstName"));
-        }
-        if (accountDetails.get("lastName") != null) {
-            accountCreationPage.enterLastName(accountDetails.get("lastName"));
-        }
-        if (accountDetails.get("addressStreet") != null) {
-            accountCreationPage.enterAddressStreet(accountDetails.get("addressStreet"));
-        }
-        if (accountDetails.get("addressCity") != null) {
-            accountCreationPage.enterAddressCity(accountDetails.get("addressCity"));
-        }
-        if (accountDetails.get("addressState") != null) {
-            accountCreationPage.enterAddressState(accountDetails.get("addressState"));
-        }
-        if (accountDetails.get("addressZipCode") != null) {
-            accountCreationPage.enterAddressZipCode(accountDetails.get("addressZipCode"));
-        }
-        if (accountDetails.get("phoneNumber") != null) {
-            accountCreationPage.enterPhoneNumber(accountDetails.get("phoneNumber"));
-        }
-        if (accountDetails.get("ssn") != null) {
-            accountCreationPage.enterSSN(accountDetails.get("ssn"));
-        }
-        if (accountDetails.get("username") != null) {
-            accountCreationPage.enterUsername(accountDetails.get("username"));
-        }
-        if (accountDetails.get("password") != null) {
-            accountCreationPage.enterPassword(accountDetails.get("password"));
-        }
-        if (accountDetails.get("repeatedPassword") != null) {
-            accountCreationPage.enterRepeatedPassword(accountDetails.get("repeatedPassword"));
-        }
+        accountDetails.forEach((key, value) -> {
+            if (value != null && !value.isEmpty()) {
+                switch (key) {
+                    case "firstName":
+                        accountCreationPage.enterFirstName(value);
+                        break;
+                    case "lastName":
+                        accountCreationPage.enterLastName(value);
+                        break;
+                    case "addressStreet":
+                        accountCreationPage.enterAddressStreet(value);
+                        break;
+                    case "addressCity":
+                        accountCreationPage.enterAddressCity(value);
+                        break;
+                    case "addressState":
+                        accountCreationPage.enterAddressState(value);
+                        break;
+                    case "addressZipCode":
+                        accountCreationPage.enterAddressZipCode(value);
+                        break;
+                    case "phoneNumber":
+                        accountCreationPage.enterPhoneNumber(value);
+                        break;
+                    case "ssn":
+                        accountCreationPage.enterSSN(value);
+                        break;
+                    case "username":
+                        accountCreationPage.enterUsername(value);
+                        break;
+                    case "password":
+                        accountCreationPage.enterPassword(value);
+                        break;
+                    case "repeatedPassword":
+                        accountCreationPage.enterRepeatedPassword(value);
+                        break;
+                }
+            }
+        });
     }
 
     @When("I submit the registration form")

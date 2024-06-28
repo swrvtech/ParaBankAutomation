@@ -14,7 +14,7 @@ Feature: Account Creation
 
     Examples:
       | firstName | lastName | addressStreet | addressCity | addressState | addressZipCode | phoneNumber  | ssn        | username | password | repeatedPassword |
-      | John      | Doe      | 123 Main St   | Anytown     | VA           | 12345          | 123-456-7890 | 123-45-6789 | johhnnddoe  | password | password |
+      | John      | Doe      | 123 Main St   | Anytown     | VA           | 12345          | 123-456-7890 | 123-45-6789 | joohhnnddoe  | password | password |
 
   @invalidAccountCreation @ACP
   Scenario Outline: Handling invalid account creation attempts
