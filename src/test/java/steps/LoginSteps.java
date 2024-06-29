@@ -22,7 +22,7 @@ public class LoginSteps extends CommonMethods {
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        loginPage.clickLoginButton();
+        PageInitializer.loginPage.clickLoginButton();
     }
 
     @Then("user is successfully logged in")
