@@ -25,3 +25,7 @@ R
 "src/test/java/pages/LoginPage.java,2/f/2febc867dad266b12f3cf09596e572e0dcf37dbf
 S
 #src/test/java/steps/LoginSteps.java,6/0/60a999fa2ae56d1081f61fa5b8a47ecba8253150
+`
+0src/test/java/steps/UpdatePersonalInfoSteps.java,1/3/13d5474ef7389b7d424fb1b53954e8eb91bd2902
+_
+/src/test/java/pages/UpdatePersonalInfoPage.java,b/7/b7256be2400343e033eb38ca363a245a5bc7ce9f

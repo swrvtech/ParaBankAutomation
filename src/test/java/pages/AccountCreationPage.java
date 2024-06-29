@@ -27,11 +27,8 @@ public class AccountCreationPage {
     By repeatedPassword = By.id("repeatedPassword");
     By registerButton = By.xpath("//input[@value='Register']");
     By successMessage = By.xpath("//p[text()='Your account was created successfully. You are now logged in.']");
-<<<<<<< HEAD
     By errorMessage = By.xpath("//p[contains(text(),'error')]"); // Adjust the locator based on the actual error message element
-=======
-    By errorMessage = By.id("repeatedPassword.errors"); // Updated locator based on the provided HTML snippet
->>>>>>> 33ce62c (error message displayed)
+
 
     public void enterFirstName(String fname) {
         if (fname != null) driver.findElement(firstName).sendKeys(fname);
