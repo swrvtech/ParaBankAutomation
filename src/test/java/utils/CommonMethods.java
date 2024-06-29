@@ -40,7 +40,7 @@ public class CommonMethods {
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
-            driver = null;  // Ensure the driver is reset to null
+            driver = null; 
         }
     }
 

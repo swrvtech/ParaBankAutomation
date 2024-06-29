@@ -29,3 +29,5 @@ S
 0src/test/java/steps/UpdatePersonalInfoSteps.java,1/3/13d5474ef7389b7d424fb1b53954e8eb91bd2902
 _
 /src/test/java/pages/UpdatePersonalInfoPage.java,b/7/b7256be2400343e033eb38ca363a245a5bc7ce9f
+U
+%src/test/java/utils/ConfigReader.java,a/a/aada9fb741f035124bcf3d741a109a0a229b1011
