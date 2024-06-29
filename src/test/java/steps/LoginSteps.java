@@ -16,13 +16,13 @@ public class LoginSteps extends CommonMethods {
 
     @When("user enters {string} and {string}")
     public void user_enters_and(String username, String password) {
-        PageInitializer.loginPage.enterUsername(username);
-        PageInitializer.loginPage.enterPassword(password);
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
     }
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        PageInitializer.loginPage.clickLoginButton();
+        loginPage.clickLoginButton();
     }
 
     @Then("user is successfully logged in")

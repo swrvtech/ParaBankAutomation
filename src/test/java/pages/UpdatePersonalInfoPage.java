@@ -19,7 +19,7 @@ public class UpdatePersonalInfoPage extends CommonMethods {
     By addressZipCode = By.id("customer.address.zipCode");
     By phoneNumber = By.id("customer.phoneNumber");
     By updateButton = By.xpath("//input[@value='Update Profile']");
-    By successMessage = By.xpath("//p[text()='Your personal information was updated successfully.']");
+    By successMessage = By.xpath("//p[text()='Your updated address and phone number have been added to the system.']");
     By errorMessage = By.xpath("//span[@class='error']");
 
     public void navigateToUpdatePersonalInfoPage() {

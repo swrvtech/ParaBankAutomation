@@ -4,6 +4,9 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import utils.CommonMethods;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import static org.junit.Assert.assertTrue;
@@ -18,37 +21,33 @@ public class UpdatePersonalInfoSteps extends CommonMethods {
     }
 
     @When("I update the following personal information")
-    public void iUpdateTheFollowingPersonalInformation(DataTable dataTable) {
+    public void iUpdateTheFollowingPersonalInformation(DataTable dataTable) throws Exception {
         List<Map<String, String>> personalInfoList = dataTable.asMaps(String.class, String.class);
         Map<String, String> personalInfo = personalInfoList.get(0);
 
-        personalInfo.forEach((key, value) -> {
-            if (value != null && !value.isEmpty()) {
-                switch (key) {
-                    case "firstName":
-                        updatePersonalInfoPage.enterFirstName(value);
-                        break;
-                    case "lastName":
-                        updatePersonalInfoPage.enterLastName(value);
-                        break;
-                    case "addressStreet":
-                        updatePersonalInfoPage.enterAddressStreet(value);
-                        break;
-                    case "addressCity":
-                        updatePersonalInfoPage.enterAddressCity(value);
-                        break;
-                    case "addressState":
-                        updatePersonalInfoPage.enterAddressState(value);
-                        break;
-                    case "addressZipCode":
-                        updatePersonalInfoPage.enterAddressZipCode(value);
-                        break;
-                    case "phoneNumber":
-                        updatePersonalInfoPage.enterPhoneNumber(value);
-                        break;
-                }
+        // Map field keys to their corresponding methods
+        Map<String, String> fieldMethodMap = new HashMap<>();
+        fieldMethodMap.put("firstName", "enterFirstName");
+        fieldMethodMap.put("lastName", "enterLastName");
+        fieldMethodMap.put("addressStreet", "enterAddressStreet");
+        fieldMethodMap.put("addressCity", "enterAddressCity");
+        fieldMethodMap.put("addressState", "enterAddressState");
+        fieldMethodMap.put("addressZipCode", "enterAddressZipCode");
+        fieldMethodMap.put("phoneNumber", "enterPhoneNumber");
+
+        // Update all fields in the map
+        for (Map.Entry<String, String> entry : personalInfo.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+
+            if (fieldMethodMap.containsKey(key)) {
+                // Get the corresponding method name
+                String methodName = fieldMethodMap.get(key);
+                // Use reflection to call the method
+                Method method = updatePersonalInfoPage.getClass().getMethod(methodName, String.class);
+                method.invoke(updatePersonalInfoPage, value);
             }
-        });
+        }
     }
 
     @When("I submit the update form")

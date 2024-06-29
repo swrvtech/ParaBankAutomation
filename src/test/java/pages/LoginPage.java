@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import utils.CommonMethods;
 
 public class LoginPage extends CommonMethods {
@@ -32,5 +33,7 @@ public class LoginPage extends CommonMethods {
 
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
+    }
+    public LoginPage() {PageFactory.initElements(driver, this);
     }
 }
