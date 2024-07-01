@@ -31,3 +31,5 @@ _
 /src/test/java/pages/UpdatePersonalInfoPage.java,b/7/b7256be2400343e033eb38ca363a245a5bc7ce9f
 U
 %src/test/java/utils/ConfigReader.java,a/a/aada9fb741f035124bcf3d741a109a0a229b1011
+T
+$src/test/java/utils/ExcelReader.java,e/d/edc0585cff282c11c24f8f9f90788439bac6fe91
